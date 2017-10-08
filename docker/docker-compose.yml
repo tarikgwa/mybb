@@ -1,0 +1,9 @@
+web:
+   build: .docker/web
+   container_name: xo-mybb-web-prod
+   hostname: mybb-web
+   ports:
+      - "80:80"
+   volumes:
+      - /home/mybb/html:/var/www/html
+   restart: always
