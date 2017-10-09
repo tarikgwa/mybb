@@ -15,7 +15,7 @@ sudo git clone https://github.com/tarikgwa/mybb.git /home/mybb
 
 cd /home/mybb
 
-chmod 755 initdock.sh
+sudo chmod 755 initdock.sh
 
 sh initdock.sh
 
