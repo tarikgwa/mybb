@@ -1,13 +1,13 @@
 #!/bin/bash
 
 #Copy ansible playbook into ansile directory
-sudo cp /home/mybb/pkg.yml /etc/ansible
+cp /home/mybb/pkg.yml /etc/ansible
 
 #Run ansible playbook to provisioning the server with necessary packages
 cd /etc/ansible
-sudo ansible-playbook -i "localhost," -c local pkg.yml -vvv
+ansible-playbook -i "localhost," -c local pkg.yml -vvv
 
 #Build and ship the mybb application by docker compose
 cd /home/mybb/docker
-sudo docker-compose up -d
+docker-compose up -d
 

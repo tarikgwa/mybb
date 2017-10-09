@@ -17,7 +17,7 @@ cd /home/mybb
 
 sudo chmod 755 initdock.sh
 
-sh initdock.sh
+sudo sh initdock.sh
 
 ==================
 
