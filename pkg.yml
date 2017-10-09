@@ -23,7 +23,6 @@
       with_items:
         - sysstat
         - htop
-        - git
         - docker
         - docker.io
         - python-pip
