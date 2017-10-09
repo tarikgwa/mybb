@@ -1,0 +1,36 @@
+- name: deploy the gisdev software stack
+  hosts: localhost
+  connection: local
+  user: ubuntu
+  sudo: true
+
+  tasks:
+
+    - name: Get aptitude for upgrade
+      apt: pkg=aptitude state=present
+
+    - name: Safe system upgrade via aptitude
+      apt: upgrade=safe
+
+    - name: Add Docker’s official GPG key
+      shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+    - name: ensure docker registry is available
+      apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-trusty main' state=present
+
+    - name: install base packages
+      apt: pkg={{item}} state=present update_cache=yes cache_valid_time=604800
+      with_items:
+        - sysstat
+        - htop
+        - docker
+        - docker.io
+        - python-pip
+
+    - name: Install global python requirements
+      pip: name={{item}} state=present
+      with_items:
+        - docker-compose
+
+    - service: name=docker state=restarted
+
