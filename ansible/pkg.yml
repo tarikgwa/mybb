@@ -37,6 +37,6 @@
       tags:
          - compose
 
-    - template: src=templates/config.php.j2 dest=/home/mybb/html/inc/config.php
+    - template: src=templates/config.php.j2 dest=/home/mybb/html/inc/config.php mode=0666
       tags:
          - conf
