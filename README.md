@@ -22,3 +22,6 @@ sh initdock.sh
 ==================
 
 *Open the endpoint or public ip into the browser and enjoy it !*
+
+By:
+**Tarik Abouali**
