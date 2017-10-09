@@ -9,7 +9,7 @@ Execute these commands:
 
 ==================
 
-sudo apt-get -y install git ansible
+sudo apt-get -y install ansible
 
 sudo git clone https://github.com/tarikgwa/mybb.git /home/mybb
 
