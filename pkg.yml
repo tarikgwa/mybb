@@ -12,8 +12,8 @@
     - name: Safe system upgrade via aptitude
       apt: upgrade=safe
 
-    - name: Add Docker’s official GPG key
-      shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    - name: ensure repository key is installed
+      command: sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
 
     - name: ensure docker registry is available
       apt_repository: repo='deb https://apt.dockerproject.org/repo ubuntu-trusty main' state=present
@@ -23,14 +23,12 @@
       with_items:
         - sysstat
         - htop
-        - docker
-        - docker.io
+        - docker-engine
         - python-pip
+
+    - service: name=docker state=restarted
 
     - name: Install global python requirements
       pip: name={{item}} state=present
       with_items:
         - docker-compose
-
-    - service: name=docker state=restarted
-
