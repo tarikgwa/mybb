@@ -1,0 +1,4 @@
+mybb:
+ db: [
+{ type: "mysql", database: "mybb", table_prefix: "mybb_", hostname: "mybb-db", username: "911labs", password: "911labs" },
+]
