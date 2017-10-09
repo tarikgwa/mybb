@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Copy ansible playbook into ansile directory
-cp /home/mybb/pkg.yml /etc/ansible
+cp -a /home/mybb/ansible /etc/ansible
 
 #Run ansible playbook to provisioning the server with necessary packages
 cd /etc/ansible

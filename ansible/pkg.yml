@@ -25,10 +25,18 @@
         - htop
         - docker-engine
         - python-pip
+      tags:
+         - pkg
 
     - service: name=docker state=restarted
 
-    - name: Install global python requirements
+    - name: Install docker compose
       pip: name={{item}} state=present
       with_items:
         - docker-compose
+      tags:
+         - compose
+
+    - template: src=templates/config.php.j2 dest=/home/mybb/html/inc/config.php
+      tags:
+         - conf
