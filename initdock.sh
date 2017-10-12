@@ -1,11 +1,11 @@
 #!/bin/bash
 
 #Copy ansible playbook into ansile directory
-cp -a /home/mybb/ansible /etc/ansible
+cp -a /home/mybb/ansible/* /etc/ansible
 
 #Run ansible playbook to provisioning the server with necessary packages
 cd /etc/ansible
-ansible-playbook -i "localhost," -c local pkg.yml -vvv
+ansible-playbook -i "localhost," -c local pkg.yml --tag 'conf,set,db,imp' -vvv
 
 #Change  permissions of application files and directories.
 cd /home/mybb/html
@@ -14,5 +14,11 @@ chmod 777 cache/ cache/themes/ uploads/ uploads/avatars/ admin/backups/
 
 #Build and ship the mybb application by docker compose
 cd /home/mybb/docker
-docker-compose up -d
+docker-compose -f docker-compose-db.yml up -d
 
+sleep 10
+
+#import the MybbDB into the DB in Database container 
+sh /home/mybb/importdb.sh
+
+echo done

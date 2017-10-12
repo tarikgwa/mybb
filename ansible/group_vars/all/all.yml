@@ -1,4 +1,9 @@
-mybb:
+mybbconf:
  db: [
 { type: "mysql", database: "mybb", table_prefix: "mybb_", hostname: "mybb-db", username: "911labs", password: "911labs" },
+]
+
+mybb:
+ settings: [
+{ adminusername: "xo-admin", adminpassmd5: "79ad574128b09fada5b2bedcfb3d2259", adminemail: "aboualitarik@gmail.com", bbname: "XO Forums", bburl: "http://ec2-54-175-224-137.compute-1.amazonaws.com", cookiedomain: ".ec2-54-175-224-137.compute-1.amazonaws.com", homename: "XO Forums", homeurl: "http://ec2-54-175-224-137.compute-1.amazonaws.com" },
 ]

@@ -1,4 +1,4 @@
-- name: deploy the gisdev software stack
+- name: deploy the mybb dockerized stack
   hosts: localhost
   connection: local
   user: ubuntu
@@ -37,6 +37,18 @@
       tags:
          - compose
 
-    - template: src=templates/config.php.j2 dest=/home/mybb/html/inc/config.php
+    - template: src=templates/config.php.j2 dest=/home/mybb/html/inc/config.php mode=0666
       tags:
          - conf
+
+    - template: src=templates/settings.php.j2 dest=/home/mybb/html/inc/settings.php mode=0666
+      tags:
+         - set
+
+    - template: src=templates/mybbdb.sql.j2 dest=/home/mybb/docker/db/db-data/mybbdb.sql mode=0644
+      tags:
+         - db
+
+    - template: src=templates/importdb.sh.j2 dest=/home/mybb/importdb.sh mode=0755
+      tags:
+         - imp
