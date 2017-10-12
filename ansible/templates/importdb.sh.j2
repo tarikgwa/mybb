@@ -1,5 +1,6 @@
-#import the MybbDB into the DB in Database container
+#!/bin/bash
+#import the MybbDB into the Database
 {% for pr in mybbconf.db %}
-docker exec -i xo-mybb-db-prod mysql -u {{pr['username']}} --password={{pr['password']}} {{pr['database']}} < /home/mybb/docker/db/db-data/mybbdb.sql
+docker exec -i xo-mybb-db-prod mysql -u {{pr['username']}} --password={{pr['password']}} -h {{pr['hostname']}} {{pr['database']}} < /home/mybb/docker/db/db-data/mybbdb.sql
 {% endfor %}
 

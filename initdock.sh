@@ -12,7 +12,7 @@ cd /home/mybb/html
 chmod 666 inc/config.php inc/settings.php inc/languages/english/*.php inc/languages/english/admin/*.php
 chmod 777 cache/ cache/themes/ uploads/ uploads/avatars/ admin/backups/
 
-#Build and ship the mybb application by docker compose
+#Build and ship the mybb application and mybb DB by docker compose
 cd /home/mybb/docker
 docker-compose -f docker-compose-db.yml up -d
 
