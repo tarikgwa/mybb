@@ -1,5 +1,5 @@
 web:
-   build: .docker/web
+   build: ./web
    container_name: xo-mybb-web-prod
    hostname: mybb-web
    ports:

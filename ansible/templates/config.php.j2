@@ -7,7 +7,7 @@
  * https://docs.mybb.com/
  */
 
-{% for pr in mybb.db %}
+{% for pr in mybbconf.db %}
 $config['database']['type'] = '{{pr['type']}}';
 $config['database']['database'] = '{{pr['database']}}';
 $config['database']['table_prefix'] = '{{pr['table_prefix']}}';
