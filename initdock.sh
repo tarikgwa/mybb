@@ -5,7 +5,7 @@ cp -a /home/mybb/ansible/* /etc/ansible
 
 #Run ansible playbook to provisioning the server with necessary packages
 cd /etc/ansible
-ansible-playbook -i "localhost," -c local pkg.yml --tag 'pkg,compose,conf,set,db,imp' -vvv
+ansible-playbook -i "localhost," -c local pkg.yml -vvv
 
 #Change  permissions of application files and directories.
 cd /home/mybb/html
